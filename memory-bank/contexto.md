@@ -10,9 +10,13 @@ Manter organizados e atualizados os conteúdos de uma disciplina de pós-gradua�
 - Preparar atividades e dinâmicas considerando objetivos, instruções, recursos e duração, quando essas informações forem conhecidas.
 - Apoiar atividades avaliativas com enunciados, critérios e orientações fornecidos pela disciplina.
 
-## Informações a completar
+## Informações confirmadas e a completar
 
-Ainda não foram informados o nome da disciplina, a ementa, o calendário, as referências oficiais nem os critérios específicos de avaliação. Não presumir esses dados; incorporá-los quando forem compartilhados.
+A disciplina é **DevSecOps - Segurança Integrada e Scanning Online**. Ainda não foram informados a ementa, o calendário, as referências oficiais completas nem os critérios específicos de avaliação. Não presumir esses dados; incorporá-los quando forem compartilhados.
+
+## Apoio ao estudo das dinâmicas
+
+O padrão de abordagem aprendido a partir das respostas e atividades compartilhadas está registrado em [abordagem-respostas-dinamicas.md](abordagem-respostas-dinamicas.md). Usá-lo como orientação para futuras respostas, sem tratar recomendações elaboradas como se fossem requisitos oficiais da disciplina.
 
 ## Orientações de manutenção
 

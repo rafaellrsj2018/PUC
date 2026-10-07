@@ -1,0 +1,41 @@
+RASCUNHO DE ESTUDO — DINÂMICA AVALIATIVA IV
+DevSecOps: Segurança Integrada e Scanning
+
+Este material é um rascunho para apoiar o estudo. Revise as ideias, adapte a linguagem e acrescente sua própria compreensão antes de usar em uma atividade.
+
+DINÂMICA AVALIATIVA IV: O GARGALO NO PIPELINE DA ACELERAPAY
+
+Bloco 1: O Desafio do SAST e Velocidade
+
+1. O SAST deve ser calibrado para priorizar o código novo e os componentes que realmente chegam à produção. Uma estratégia é executar uma análise incremental e rápida em cada Pull Request, comparar com uma linha de base dos achados antigos e bloquear apenas falhas novas, confirmadas e acima do nível de risco definido pela empresa. Os falsos positivos devem ser triados e, quando justificado, suprimidos com motivo, responsável e prazo para revisão. Análises completas podem rodar em horários agendados. A equipe também deve ajustar regras e exclusões de forma restrita, usar execução paralela ou incremental e acompanhar o tempo do pipeline. Assim, os desenvolvedores recebem feedback útil sem transformar todo alerta histórico em bloqueio.
+
+2. Muitos falsos positivos consomem tempo em triagem e correções desnecessárias, atrasam entregas e aumentam o custo operacional. Com o tempo, os desenvolvedores podem perder confiança na ferramenta e ignorar alertas, inclusive os verdadeiros. Isso cria fadiga de alertas e diminui a capacidade da empresa de identificar riscos reais. A solução não é simplesmente desligar o SAST, mas melhorar sua precisão, priorização e governança.
+
+Bloco 2: O Peso do DAST e Janelas de Teste
+
+3. Não é eficiente executar um scan completo de três horas em cada alteração. Verificações rápidas e direcionadas podem rodar em mudanças relevantes no Pull Request; o DAST completo deve ser executado em homologação, em janelas agendadas, antes de uma versão importante ou quando mudanças de risco justificarem a análise. O ambiente deve se aproximar da produção e ser revisado para separar falhas reais da aplicação de avisos de configuração do ambiente de teste. Achados devem ser validados antes de bloquear uma entrega. Isso equilibra cobertura, custo e velocidade sem abandonar a análise dinâmica.
+
+4. Criar tickets automaticamente para achados do DAST fora do pipeline principal dá visibilidade e rastreabilidade sem interromper toda implantação por um alerta ainda não validado. O ticket pode registrar evidências, ativo afetado, severidade, responsável, prazo de correção e estado da triagem. Isso ajuda a priorizar o backlog, atribuir responsabilidade, acompanhar SLAs e medir tendências. A ausência de bloqueio automático não deve significar ignorar o risco: achados críticos confirmados precisam ser escalados e tratados conforme uma política de risco aprovada.
+
+5. Critérios sugeridos para execução das ferramentas:
+
+Categoria | Política Associada
+SAST | Rodar análise incremental em cada Pull Request e análise completa agendada. Priorizar código novo que será implantado. Bloquear falhas confirmadas de alto risco conforme os critérios da empresa; registrar achados antigos em uma linha de base e tratar falsos positivos com justificativa, responsável e prazo de revisão.
+DAST | Rodar verificações rápidas e direcionadas quando aplicável e scans completos em homologação em horários agendados, antes de releases relevantes ou após mudanças de risco. Usar ambiente autorizado e representativo, validar achados e abrir tickets com evidências e prioridade. Bloquear somente achados reais que atinjam o limite de risco definido.
+
+Bloco 3: Testes de Software e Segurança Automatizada
+
+6. QAs podem acrescentar cenários de abuso aos testes funcionais que já executam. Por exemplo: verificar se um usuário não consegue consultar ou alterar o Pix de outra pessoa; testar valores inválidos e limites; confirmar que uma transação não é processada duas vezes após uma repetição; validar permissões por perfil, expiração de sessão e mensagens de erro sem dados sensíveis. Esses testes podem ser automatizados como critérios de aceite e regressão. Portanto, é possível testar aspectos de segurança sem uma ferramenta exclusiva: regras de autorização e comportamento seguro podem ser verificados por testes funcionais. Isso complementa SAST e DAST, mas não substitui uma análise especializada.
+
+7. Políticas sugeridas para quebra do pipeline:
+
+Categoria | Política de Quebra do Build
+SAST | Bloquear quando uma falha nova, confirmada e relevante para código implantável ultrapassar o limite de severidade definido, por exemplo, uma vulnerabilidade crítica ou alta. Alertas antigos ficam registrados na linha de base e falsos positivos só podem ser dispensados com justificativa e rastreabilidade.
+SCA | Bloquear quando uma dependência introduzida ou atualizada tiver vulnerabilidade crítica ou alta confirmada e aplicável ao produto, especialmente quando houver correção disponível. Considerar também se o componente é usado e alcançável. Registrar exceções com justificativa, responsável pela aceitação do risco e prazo.
+DAST | Bloquear a promoção para produção diante de vulnerabilidade crítica confirmada e reproduzível na aplicação, e aplicar tratamento definido para achados altos conforme o risco. Não bloquear por alerta de configuração exclusivo do ambiente de teste ou falso positivo sem validação. Scans completos podem ocorrer fora do pipeline de cada commit, mantendo acompanhamento e escalonamento dos achados.
+
+As políticas devem distinguir um achado de segurança de uma falha da própria ferramenta. Se uma verificação não puder ser concluída, o pipeline deve indicar claramente que o resultado está inconclusivo e seguir o procedimento de contingência aprovado, em vez de apresentar a validação como aprovada.
+
+Resumo das Lições Aprendidas
+
+Automatizar não basta: as ferramentas precisam ser calibradas para que os alertas sejam confiáveis e úteis. Testes curtos e incrementais podem rodar com frequência; análises longas e abrangentes devem ser posicionadas em momentos adequados do ciclo. A quebra do pipeline deve ser reservada a critérios de risco claros e achados acionáveis. Dessa forma, segurança e velocidade deixam de ser objetivos concorrentes e passam a ser responsabilidades integradas da equipe.

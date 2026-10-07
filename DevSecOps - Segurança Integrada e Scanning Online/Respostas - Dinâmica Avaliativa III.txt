@@ -1,0 +1,26 @@
+RASCUNHO DE ESTUDO — DINÂMICA AVALIATIVA III
+DevSecOps: Segurança Integrada e Scanning
+
+Este material é um rascunho para apoiar o estudo. Revise as ideias, adapte a linguagem e acrescente sua própria compreensão antes de usar em uma atividade.
+
+DINÂMICA AVALIATIVA III: O LANÇAMENTO DO APP ACELERAPAY — O COMMIT
+
+Bloco 1: Segurança na Máquina do Desenvolvedor
+
+1. Se Frodo tivesse ferramentas de segurança na IDE ou hooks de pre-commit, a chave de produção poderia ter sido identificada antes de o código chegar ao repositório remoto. A IDE pode avisar sobre segredos e padrões inseguros enquanto o desenvolvedor escreve; o hook pode impedir o commit até que o problema seja removido. Isso antecipa o feedback e reduz o custo de correção, pois o segredo ainda não foi compartilhado no histórico remoto. O impacto na produtividade tende a ser pequeno quando as verificações são rápidas, bem configuradas e explicam como corrigir o problema. Se forem lentas ou gerarem muitos falsos positivos, podem causar atrito; por isso, essas medidas devem complementar, e não substituir, os controles no servidor e no pipeline.
+
+Bloco 2: Governança do SCM e Revisão de Código
+
+2. Permitir alterações diretas na branch principal elimina uma etapa independente de revisão e pode levar defeitos, código malicioso ou segredos expostos diretamente à versão que será entregue. Também enfraquece a rastreabilidade e a separação de responsabilidades exigidas pela governança. A AceleraPay deveria exigir Pull Request, revisão de pelo menos outra pessoa, aprovação dos responsáveis pelo código em áreas sensíveis e aprovação dos testes e verificações automatizadas antes do merge. Também deveria restringir quem pode alterar as regras, impedir force push e exclusão da branch principal e registrar as exceções. As permissões devem seguir o menor privilégio, com autenticação forte para as contas do SCM.
+
+3. Proteção de branch e revisão obrigatória reduzem o risco de erro e dificultam uma fraude, porque uma conta comprometida não deveria conseguir publicar sozinha uma mudança diretamente na main. Porém, esses controles não garantem proteção absoluta: um atacante pode tentar enganar revisores, abusar de uma conta com privilégios excessivos ou explorar uma exceção às regras. Por isso, devem ser combinados com MFA, permissões mínimas, revisão independente, verificações automatizadas, monitoramento de alterações e auditoria. Para mudanças de alto impacto, a empresa pode exigir mais de uma aprovação e uma validação adicional dos responsáveis.
+
+Bloco 3: Gestão de Segredos e Histórico do Git
+
+4. Frodo não resolveu o problema apenas apagando a linha. O Git mantém versões anteriores nos commits, e a chave pode continuar acessível no histórico ou já ter sido copiada por alguém. A credencial deve ser tratada como comprometida: revogá-la ou rotacioná-la imediatamente, investigar seu possível uso e seguir o processo de resposta a incidentes. A nova chave deve ficar em um Secret Manager ou mecanismo seguro equivalente, ser disponibilizada somente aos serviços autorizados e nunca ser gravada no código. A reescrita do histórico e a remoção de cópias podem ser necessárias, mas não substituem a revogação da chave exposta.
+
+5. A rotação precisa ser coordenada para evitar indisponibilidade: gerar uma nova credencial com escopo mínimo, armazená-la no cofre, atualizar de forma controlada os ambientes e integrações que dependem dela, validar que os serviços e testes funcionam e só então revogar a credencial antiga. A equipe deve monitorar erros de autenticação e sinais de uso indevido durante a transição. Parceiros afetados devem ser avisados por um canal seguro, seguindo o contrato e o procedimento de incidentes. Depois, a empresa deve registrar a rotação, revisar quem tinha acesso e verificar se a credencial antiga foi removida dos locais sob seu controle.
+
+Conclusão
+
+A prevenção começa na máquina do desenvolvedor, mas precisa continuar no SCM e no pipeline. IDE e hooks dão feedback cedo; proteção de branch e revisão evitam mudanças sem controle; e a gestão de segredos exige revogar credenciais expostas, não apenas apagar o texto do código. Esses controles reduzem riscos sem depender de uma única barreira.

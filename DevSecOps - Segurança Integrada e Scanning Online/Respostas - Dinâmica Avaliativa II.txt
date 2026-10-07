@@ -1,0 +1,41 @@
+Dinâmica Avaliativa II: O Lançamento do App AceleraPay
+DevSecOps: Segurança Integrada e Scanning
+
+Bloco 1: Escalar a Segurança e Cultura
+Com apenas 2 profissionais de segurança para 40 desenvolvedores, não dá para validar cada linha de código ou cada história de usuário manualmente. Por isso, a estratégia de Security Champions é uma saída bem mais realista para ampliar a cultura de segurança na fase de PLAN.
+
+Na prática, cada squad pode indicar um ou mais champions. Eles participam do planejamento, ajudam a revisar requisitos, identificam riscos de autenticação, autorização, validação de entrada e proteção de dados, e fazem a ponte com o time central de segurança.
+
+O maior desafio é convencer a equipe a assumir esse papel sem que isso pareça mais trabalho. Em muitos times, a segurança ainda é vista como algo do time de segurança, e não como responsabilidade do próprio desenvolvimento. Para isso, é preciso treinamento, reconhecimento e apoio da liderança.
+
+Bloco 2: Gestão do Backlog e Riscos
+Durante o Sprint Planning, a equipe de segurança aponta um risco moderado em uma API e sugere uma camada extra de criptografia, o que vai demandar mais 3 dias de trabalho. O Product Owner rebate dizendo que isso pode atrasar o lançamento e prejudicar a janela do produto.
+
+Nesse caso, a decisão não pode ficar só com o PO e também não pode ficar só com a segurança. O certo é ter uma governança de risco envolvendo negócio, engenharia, arquitetura e segurança. Quando o risco é relevante, a falha não pode ser ignorada só porque o prazo é apertado.
+
+O DevSecOps ajuda porque integra segurança no pipeline, automatiza testes e cria critérios objetivos para liberar ou bloquear uma entrega. Assim, a empresa mantém velocidade, mas sem abrir brechas críticas.
+
+Bloco 3: Processo e Prevenção
+O Shift Left começa antes mesmo de escrever código. Na fase de PLAN, a equipe pode fazer várias atividades para mapear os riscos da arquitetura do novo app.
+
+Algumas ações práticas são:
+- Threat Modeling para identificar ameaças e cenários de abuso;
+- análise do fluxo de dados e das integrações;
+- revisão da arquitetura para verificar autenticação, autorização e exposição de APIs;
+- identificação de impactos de vazamento, manipulação e fraude;
+- definição de requisitos de segurança antes do desenvolvimento;
+- revisão de parceiros e serviços externos que entrarão no fluxo.
+
+Essas ações ajudam a detectar problemas antes que eles se transformem em falhas caras e difíceis de corrigir em produção.
+
+Bloco 4: Papéis e Responsabilidades
+O problema dos normativos não terem adesão não é só falta de documento. A causa real é a ausência de governança, clareza de papéis e cultura de responsabilidade compartilhada.
+
+Quando os requisitos são divulgados, mas não colocados no fluxo do trabalho, fica fácil dizer que “não era responsabilidade da área”. Isso acontece porque não há dono claro para cada item, nem acompanhamento real da execução. A segurança acaba ficando para depois, ou sendo entendida como algo do time de segurança.
+
+Para corrigir isso, é preciso definir papéis com clareza, estabelecer critérios de aceite, acompanhar as entregas e exigir que a área de negócio e a área de tecnologia também assumam responsabilidade. Segurança precisa fazer parte do processo, e não virar atividade posterior.
+
+Conclusão
+A AceleraPay precisa tratar a segurança como parte do valor do produto e não como uma etapa que vai atrasar o negócio. Security Champions, gestão de risco, Shift Left e papéis bem definidos ajudam a reduzir vulnerabilidades antes do lançamento.
+
+O DevSecOps é a resposta mais adequada porque integra segurança ao desenvolvimento e faz a empresa manter velocidade sem abrir brechas críticas. Em fintech, segurança é condição para confiança, conformidade e continuidade do negócio.

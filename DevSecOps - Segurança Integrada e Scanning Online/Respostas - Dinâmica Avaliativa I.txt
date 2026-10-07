@@ -1,0 +1,23 @@
+Dinâmica Avaliativa I: O Lançamento do "Pix Express" na PayVelo
+DevSecOps: Segurança Integrada e Scanning
+
+Bloco 1: A raiz do risco e as pressões do negócio
+A decisão de lançar o Pix Express sem a validação final de segurança foi uma falha de governança e gestão de riscos, não apenas um erro técnico dos desenvolvedores. A empresa foi pressionada por um prazo agressivo de três semanas e priorizou a entrega rápida em detrimento da segurança. Em ambientes financeiros, segurança não pode ser tratada como etapa opcional, porque o custo de uma falha é muito maior do que o custo de validação antes do lançamento. A vulnerabilidade foi gerada por uma combinação de pressão de negócio, falta de critérios de risco e ausência de controle de segurança no processo.
+
+Bloco 2: O modelo tradicional vs. DevSecOps
+No modelo tradicional, a segurança atua como uma “porteira” no fim do ciclo de desenvolvimento. Isso contribuiu diretamente para a crise da PayVelo, porque a funcionalidade foi entregue sem validar corretamente permissões e acessos. A segurança apareceu como um obstáculo, e não como parte do processo. Já o DevSecOps integra segurança desde o início, com testes automatizados, varredura de vulnerabilidades, validação de permissões e análise contínua no pipeline de desenvolvimento. Isso reduz riscos, evita retrabalho e permite que a empresa mantenha velocidade sem ignorar a segurança.
+
+Bloco 3: O custo da correção indireta
+A falha do código pode ter sido corrigida em poucas horas, mas o impacto real para a PayVelo foi muito maior. Houve interrupção do serviço por 12 horas, perda de confiança dos usuários, cancelamento de contas, repercussão na imprensa especializada e notificação dos órgãos reguladores. Além disso, houve desgaste interno entre os times, desconfiança e prejuízo de reputação. Em uma fintech, a confiança do cliente e a conformidade regulatória são ativos centrais, então o custo indireto foi muito superior ao custo técnico da correção.
+
+Bloco 4: Segurança como responsabilidade de todos
+A segurança deve ser responsabilidade de todos, e não apenas do time de segurança. Para sensibilizar Produto e Negócios, a gestão deve mostrar os impactos em linguagem de negócio, como perda de clientes, prejuízo financeiro, risco regulatório e reputação. A melhor forma de evitar bloqueios excessivos é criar regras claras e automáticas, em vez de burocracia. A empresa deve definir guardrails de segurança no processo de desenvolvimento, mas sem impedir a inovação. Segurança e velocidade podem coexistir quando a segurança é integrada desde o início.
+
+Bloco 5: Plano de ação de gestão
+Se eu assumisse a gestão da área de tecnologia e operações da PayVelo, as três primeiras decisões seriam: primeiro, reestruturar a governança de risco e a aprovação de entregas; segundo, implementar DevSecOps no pipeline, com testes automáticos, validação de acesso e varredura de vulnerabilidades; terceiro, criar uma cultura de responsabilidade compartilhada, com revisão de arquitetura e acompanhamento contínuo de riscos. Essas medidas permitiriam entregar com rapidez, mas com segurança e controle.
+
+Bloco 6: Criptografia
+Eu seria favorável à criptografia, mas como medida complementar, não como solução principal. A causa raiz do problema foi a falha de autorização e validação de acessos, e não apenas a ausência de criptografia. O atacante conseguia alterar o identificador da transação na URL e acessar dados de terceiros porque a API não validava corretamente a identidade e a permissão do usuário. A criptografia protege dados em repouso e em trânsito, mas não impede acesso indevido. A solução correta deve combinar autenticação forte, autorização explícita, validação de entrada, controle de acesso por papel e escopo, logs de auditoria e uso de identificadores seguros. Portanto, a causa raiz precisa ser tratada no nível de acesso e autorização, e a criptografia deve atuar como camada adicional de proteção.
+
+Conclusão
+A PayVelo sofreu uma falha grave de segurança por causa de má gestão de risco, pressão por prazo e ausência de integração da segurança ao processo de desenvolvimento. O modelo tradicional, que separa segurança do desenvolvimento, contribuiu para o incidente. O DevSecOps é a abordagem mais adequada para evitar esse tipo de problema, pois incorpora segurança desde o início e permite entregas rápidas sem abrir brechas críticas. Em uma fintech, segurança não é um custo extra; é uma condição de operação, confiança e continuidade do negócio.

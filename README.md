@@ -16,3 +16,7 @@ As pastas de materiais, atividades e avaliações podem ser criadas conforme o c
 Ao adicionar conteúdo, registre o tema e, quando disponível, a data, a fonte e a relação com a disciplina. Diferencie informações fornecidas pela disciplina de sugestões preparadas como apoio. Para atividades avaliativas, use os critérios e orientações oficiais quando estiverem disponíveis.
 
 Consulte o [contexto do repositório](memory-bank/contexto.md) antes de ampliar ou reorganizar o material.
+
+## Apoio ao estudante
+
+A skill [estudante-devsecops](.github/skills/estudante-devsecops/SKILL.md) orienta o uso dos materiais da disciplina para explicações, revisões, exercícios e laboratórios em assistentes compatíveis com Agent Skills.
