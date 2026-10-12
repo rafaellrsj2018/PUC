@@ -1,0 +1,34 @@
+name: ZAP SCAN Basic
+
+on:
+  # Gatilho manual (perfeito para testes)
+  workflow_dispatch:
+
+jobs:
+  zap_full_scan:
+    name: Run ZAP Basic Scan
+    runs-on: ubuntu-latest
+   
+    # Definição de permissões necessárias
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+      # Passo 1: Checkout (necessário)
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Passo 2: Rodar o ZAP Basic Scan.
+      - name: ZAP Basic Scan
+        uses: zaproxy/action-baseline@v0.14.0
+        with:
+          # Alvo de teste
+          target: 'http://testphp.vulnweb.com/'
+
+      - name: Upload ZAP Report
+        uses: actions/upload-artifact@v4 # Use the latest version
+        with:
+          name: zap-html-report
+          path: report_html.html 
